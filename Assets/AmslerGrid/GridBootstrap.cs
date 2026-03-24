@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GridBootstrap : MonoBehaviour
 {
+    public int nRows = 10;
+    public int nCols = 10;
+    public float spacing = 1.0f;
     public GridRenderer renderer;
     public GridInteraction interaction;
     public enum FieldType { CatmullRom, LocalHermite }
@@ -9,7 +12,7 @@ public class GridBootstrap : MonoBehaviour
 
     void Start()
     {
-        var model = new GridModel(10, 10, 1.0f);
+        var model = new GridModel(nCols, nRows, spacing);
         IDeformationField field = fieldType switch
         {
             FieldType.CatmullRom => new CatmullRomField(model),

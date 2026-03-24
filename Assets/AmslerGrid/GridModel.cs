@@ -15,10 +15,17 @@ public class GridModel
         baseGrid = new Vector2[w, h];
         deformedGrid = new Vector2[w, h];
 
+        float halfWidth = (w - 1) * spacing * 0.5f;
+        float halfHeight = (h - 1) * spacing * 0.5f;
+
         for (int i = 0; i < w; i++)
         for (int j = 0; j < h; j++)
         {
-            Vector2 p = new Vector2(i * spacing, j * spacing);
+            Vector2 p = new Vector2(
+                i * spacing - halfWidth,
+                j * spacing - halfHeight
+            );
+
             baseGrid[i, j] = p;
             deformedGrid[i, j] = p;
         }
